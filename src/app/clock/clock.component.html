@@ -1,0 +1,51 @@
+ <div id="clockArea">
+ <p></p>
+ <p></p>
+ <header> Local Time</header>
+  <p></p>
+ <span
+    *ngFor="let project of projects; let isLast=last"
+    [ngSwitch]="( project === selectedProject )">
+    <span *ngSwitchCase="true" class="editor">
+      <input
+        size="2"
+        type="text"
+        name="value"
+        autofocus
+        [(ngModel)]="pendingValue"
+        (keydown.Enter)="processChanges()"
+        (keydown.Meta.Enter)="processChanges()"
+        (keydown.Escape)="cancel()"
+      />
+    </span>
+
+    <span *ngSwitchCase="false" (click)="edit( project );stopTime()">
+      {{ project.name }}{{isLast ? '' : ':'}}
+    </span>
+</span>
+
+<p></p>
+<div>
+ <span
+    *ngFor="let project of projects"
+    [ngSwitch]="( project === selectedProject )">
+    <span *ngSwitchCase="true" class="editor">
+       
+          <button (click)="processChanges();updateTime()">
+            Run
+        </button>
+        <button
+            (click)="cancel()"
+            (keydown.Enter)="cancel()"
+            tabindex="0">
+            Cancel
+      </button>
+    </span>
+</span>
+</div>
+
+
+</div>
+
+    
+  

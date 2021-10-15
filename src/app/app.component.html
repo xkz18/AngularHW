@@ -1,33 +1,15 @@
-<h1>{{title}}</h1>
- 
-<div>
-  <div>
-    <label>Author: </label>
-    <input [(ngModel)]="person.name" />
-  </div>
-  <div>
-    <label>Body: </label>
-    <input [(ngModel)]="person.body" />
-  </div>
-  <div>
-    <button (click)="addPerson()">Add</button>
-  </div>
-</div>
- 
-<table class='table'>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Author</th>
-      <th>Body</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let person of people;">
-      <td>{{person.id}}</td>
-      <td>{{person.name}}</td>
-      <td>{{person.body}}</td>
-    </tr>
-  </tbody>
-</table>
- 
+<!-- <app-get-post></app-get-post> 
+<app-clock></app-clock> -->
+
+<h1>
+  Modules
+</h1>
+
+
+
+
+<button [routerLink]="['/clock','c',{foo:'foo'}]">Clock</button>
+<button [routerLink]="['/get-post','c','child']">GetPost</button>
+<!-- <button [routerLink]="['/orders',1]" [queryParams]="{foo:'foo',second:2}">Orders</button> -->
+<button routerLink="">Home</button>
+<router-outlet></router-outlet>
